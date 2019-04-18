@@ -124,9 +124,7 @@ GameObject:
   - component: {fileID: 85084944}
   - component: {fileID: 85084943}
   - component: {fileID: 85084942}
-  - component: {fileID: 85084946}
   - component: {fileID: 85084948}
-  - component: {fileID: 85084947}
   - component: {fileID: 85084949}
   m_Layer: 0
   m_Name: Cube
@@ -195,45 +193,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 85084941}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 7.24}
+  m_LocalPosition: {x: 0, y: 0, z: 5.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &85084946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 85084941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c23c1fb988cf4f441baae270e1be70ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &85084947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 85084941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d946fff9ec509c9468425c0aa57433a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  scaleTransform: {fileID: 85084945}
-  flattenPreference: 4
-  flattenAxisThreshold: 0.025
-  flattenedAxisThickness: 0.01
-  scalePadding: 0.05
-  flattenedScalePadding: 0
-  boundsCalculationMethod: 0
-  ignoreLayers:
-    serializedVersion: 2
-    m_Bits: 4
 --- !u!114 &85084948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,87 +224,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 85084941}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80c870726057bb743b9c4f8faa604b98, type: 3}
+  m_Script: {fileID: 11500000, guid: 4768146f072b50149a922df192dfb58f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactables: []
-  Targets: []
-  lockFocus: 0
-  HoverOffsetYScale: 0.25
-  HoverOffsetZ: 0
-  useTightFollow: 0
-  SquareButtonPrefab: {fileID: 0}
-  UseRemove: 1
-  UseAdjust: 1
-  UseHide: 1
-  DisplayType: 0
-  State: 0
-  CustomButtonIconProfile: {fileID: 0}
-  buttons:
-  - DefaultPosition: 0
-    ManipulationPosition: 0
-    Type: 0
-    Name: 
-    Icon: 
-    Text: 
-    EventTarget: {fileID: 0}
-    OnTappedEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - DefaultPosition: 0
-    ManipulationPosition: 0
-    Type: 0
-    Name: 
-    Icon: 
-    Text: 
-    EventTarget: {fileID: 0}
-    OnTappedEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - DefaultPosition: 0
-    ManipulationPosition: 0
-    Type: 0
-    Name: 
-    Icon: 
-    Text: 
-    EventTarget: {fileID: 0}
-    OnTappedEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - DefaultPosition: 0
-    ManipulationPosition: 0
-    Type: 0
-    Name: 
-    Icon: 
-    Text: 
-    EventTarget: {fileID: 0}
-    OnTappedEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  - DefaultPosition: 0
-    ManipulationPosition: 0
-    Type: 0
-    Name: 
-    Icon: 
-    Text: 
-    EventTarget: {fileID: 0}
-    OnTappedEvent:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  buttonParent: {fileID: 0}
-  baseRenderer: {fileID: 0}
-  backgroundBar: {fileID: 0}
-  boundingBox: {fileID: 0}
+  flattenedAxis: 0
+  scaleHandleMaterial: {fileID: 2100000, guid: 4a9072a0d8623aa44abf31f02d209a09, type: 2}
+  rotateHandleMaterial: {fileID: 2100000, guid: 4a9072a0d8623aa44abf31f02d209a09,
+    type: 2}
+  interactingMaterial: {fileID: 2100000, guid: b614a09bc429623478e946d8170b15ae, type: 2}
+  scaleRate: 10
+  appBarHoverOffsetZ: 0.05
+  maxScale: 100
+  rotationType: 0
+  handMotionToRotate: 0
+  rotateAroundPivot: 0
+  boundingBoxPrefab: {fileID: 114030465538688920, guid: 865a8ded6c47efd4285f04f3aebe99e9,
+    type: 2}
+  appBarPrefab: {fileID: 114050950401502068, guid: aa610ada334bff640a535f0d23a9a15c,
+    type: 2}
 --- !u!1001 &187192826
 Prefab:
   m_ObjectHideFlags: 0
