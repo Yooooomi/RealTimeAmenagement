@@ -6,25 +6,30 @@ using HoloToolkit.Unity.InputModule;
 using UnityEngine.Events;
 
 [System.Serializable]
-public class OnHoldFrame : UnityEvent<float> { }
+public class OnHoldFrame : UnityEvent<InputEventData, float> { }
+[System.Serializable]
+public class OnBasicInput : UnityEvent<InputEventData> { }
 
-public class CheckInputs : MonoBehaviour, IInputHandler
+public class CheckInputs : MonoBehaviour, IInputHandler, IFocusable
 {
     public float holdTime = 1.0f;
     private float timeClicked = 0.0f;
     private bool down = false;
     private bool signaledHold = false;
 
-    public UnityEvent onClick = new UnityEvent();
-    public UnityEvent onHold = new UnityEvent();
+    public OnBasicInput onClick = new OnBasicInput();
+    public OnBasicInput onHold = new OnBasicInput();
     public OnHoldFrame onHoldFrame = new OnHoldFrame();
-    public UnityEvent onDown = new UnityEvent();
-    public UnityEvent onUp = new UnityEvent();
+    public OnBasicInput onDown = new OnBasicInput();
+    public OnBasicInput onUp = new OnBasicInput();
+
+    private InputEventData lastEventData;
 
     public void OnInputDown(InputEventData eventData)
     {
+        lastEventData = eventData;
         down = true;
-        onDown.Invoke();
+        onDown.Invoke(eventData);
         timeClicked = Time.time;
     }
 
@@ -32,11 +37,11 @@ public class CheckInputs : MonoBehaviour, IInputHandler
     {
         if (down)
         {
-            onHoldFrame.Invoke(Time.time - timeClicked);
+            onHoldFrame.Invoke(lastEventData, Time.time - timeClicked);
             if (!signaledHold && Time.time - timeClicked > holdTime)
             {
                 signaledHold = true;
-                onHold.Invoke();
+                onHold.Invoke(lastEventData);
             }
         }
     }
@@ -47,8 +52,17 @@ public class CheckInputs : MonoBehaviour, IInputHandler
         down = false;
         if (Time.time - timeClicked < holdTime)
         {
-            onClick.Invoke();
+            onClick.Invoke(eventData);
         }
-        onUp.Invoke();
+        onUp.Invoke(eventData);
+    }
+
+    public void OnFocusEnter()
+    {
+    }
+
+    public void OnFocusExit()
+    {
+        if (down) this.OnInputUp(lastEventData);
     }
 }

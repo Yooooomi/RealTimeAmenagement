@@ -6,27 +6,47 @@ using UnityEngine.UI;
 
 public class MeublePreview : MonoBehaviour {
 
+    public GameObject meublePrefab;
+
+    public float spawnOffset;
     public Image completion;
     private CheckInputs checkInputs;
+    private bool holding;
+    private Camera cam;
 
     private void Start()
     {
+        cam = GameObject.FindObjectOfType<Camera>();
         checkInputs = GetComponent<CheckInputs>();
     }
 
-    public void OnHoldFrame(float time)
+    public void OnDown()
     {
-        completion.fillAmount = time / checkInputs.holdTime;
+        holding = true;
     }
 
-    public void OnHold()
+    public void OnHoldFrame(InputEventData eventData, float time)
     {
+        if (holding)
+        {
+            completion.fillAmount = time / checkInputs.holdTime;
+        }
+    }
+
+    public void OnHold(InputEventData eventData)
+    {
+        holding = false;
+        completion.fillAmount = 0;
         Debug.Log("J'ai mon canapé");
-        // TODO Instantiate object
+        GameObject objectInstantiated = GameObject.Instantiate(meublePrefab, transform.position - transform.forward * spawnOffset, Quaternion.identity);
+        HandDraggable hd = objectInstantiated.GetComponent<HandDraggable>();
+        hd.HostTransform = objectInstantiated.transform;
+        hd.OnInputDown(eventData);
     }
 
     public void OnUp()
     {
+        holding = false;
         completion.fillAmount = 0;
     }
 
