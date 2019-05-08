@@ -39,6 +39,8 @@ public class MeublePreview : MonoBehaviour {
         completion.fillAmount = 0;
         Debug.Log("J'ai mon canapé");
         GameObject objectInstantiated = GameObject.Instantiate(meublePrefab, transform.position - transform.forward * spawnOffset, Quaternion.identity);
+        Vector3 size = objectInstantiated.GetComponentInChildren<Renderer>().bounds.size;
+        objectInstantiated.transform.position -= new Vector3(0, size.y / 2, 0);
         HandDraggable hd = objectInstantiated.GetComponent<HandDraggable>();
         hd.HostTransform = objectInstantiated.transform;
         hd.OnInputDown(eventData);

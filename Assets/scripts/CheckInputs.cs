@@ -22,6 +22,7 @@ public class CheckInputs : MonoBehaviour, IInputHandler, IFocusable
     public OnHoldFrame onHoldFrame = new OnHoldFrame();
     public OnBasicInput onDown = new OnBasicInput();
     public OnBasicInput onUp = new OnBasicInput();
+    public OnBasicInput onPhysicUp = new OnBasicInput();
 
     private InputEventData lastEventData;
 
@@ -46,7 +47,7 @@ public class CheckInputs : MonoBehaviour, IInputHandler, IFocusable
         }
     }
 
-    public void OnInputUp(InputEventData eventData)
+    public void up(InputEventData eventData)
     {
         signaledHold = false;
         down = false;
@@ -57,12 +58,18 @@ public class CheckInputs : MonoBehaviour, IInputHandler, IFocusable
         onUp.Invoke(eventData);
     }
 
+    public void OnInputUp(InputEventData eventData)
+    {
+        onPhysicUp.Invoke(eventData);
+        if (down) this.up(eventData);
+    }
+
     public void OnFocusEnter()
     {
     }
 
     public void OnFocusExit()
     {
-        if (down) this.OnInputUp(lastEventData);
+        if (down) this.up(lastEventData);
     }
 }
