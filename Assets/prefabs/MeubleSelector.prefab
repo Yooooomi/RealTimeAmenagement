@@ -274,6 +274,10 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: OnBasicInput, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  onPhysicUp:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: OnBasicInput, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &114493495881926898
 MonoBehaviour:
   m_ObjectHideFlags: 1

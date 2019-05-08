@@ -589,8 +589,10 @@ PlayerSettings:
       HumanInterfaceDevice: False
       InternetClient: False
       InternetClientServer: False
+      Microphone: False
       PrivateNetworkClientServer: False
       SpatialPerception: True
+      WebCam: False
   metroFTAName: 
   metroFTAFileTypes: []
   metroProtocolName: 

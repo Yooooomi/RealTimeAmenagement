@@ -6,6 +6,7 @@ using HoloToolkit.UI;
 public class Shelf : MonoBehaviour {
 
     public Transform previewContainer;
+    public GameObject meubleContainer;
     public GameObject previewPrefab;
     public List<GameObject> availableMeubles;
     public int meublesPerLine;
@@ -24,7 +25,7 @@ public class Shelf : MonoBehaviour {
             int ndxInLine = i % meublesPerLine;
             GameObject instantiated = Instantiate(previewPrefab, previewContainer);
             MeublePreview mp = instantiated.GetComponent<MeublePreview>();
-            mp.meublePrefab = availableMeubles[i];
+            mp.Init(meubleContainer, availableMeubles[i]);
             instantiated.transform.localPosition = new Vector3(spacing * ndxInLine - (spacing * (meublesPerLine - 1)) / 2, currentLine * spacing, 0);
         }
     }
