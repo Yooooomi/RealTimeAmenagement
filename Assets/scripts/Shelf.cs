@@ -25,8 +25,8 @@ public class Shelf : MonoBehaviour {
             int ndxInLine = i % meublesPerLine;
             GameObject instantiated = Instantiate(previewPrefab, previewContainer);
             MeublePreview mp = instantiated.GetComponent<MeublePreview>();
-            mp.Init(meubleContainer, availableMeubles[i]);
             instantiated.transform.localPosition = new Vector3(spacing * ndxInLine - (spacing * (meublesPerLine - 1)) / 2, currentLine * spacing, 0);
+            mp.Init(meubleContainer, availableMeubles[i]);
         }
     }
 

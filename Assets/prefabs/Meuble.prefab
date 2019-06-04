@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4769673257642776}
   - component: {fileID: 114473699052417820}
   - component: {fileID: 114984604618936082}
-  - component: {fileID: 114522731074813808}
   m_Layer: 0
   m_Name: Meuble
   m_TagString: Untagged
@@ -59,20 +58,6 @@ MonoBehaviour:
   PositionLerpSpeed: 0.2
   RotationLerpSpeed: 0.2
   IsDraggingEnabled: 1
---- !u!114 &114522731074813808
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1921498352703632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f122ca4ae6b527e4798205becf9a0550, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AnchorDebugText: {fileID: 0}
-  ShowDetailedLogs: 0
-  PersistentAnchors: 0
 --- !u!114 &114984604618936082
 MonoBehaviour:
   m_ObjectHideFlags: 1

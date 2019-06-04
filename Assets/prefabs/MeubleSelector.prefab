@@ -301,9 +301,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6014af8af06443042a02fb8684c0a463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meubleContainer: {fileID: 0}
   meublePrefab: {fileID: 0}
-  spawnOffset: 1.5
+  spawnOffset: 0.5
   completion: {fileID: 114171776810893452}
+  testPrefab: {fileID: 1708295493763856, guid: f221890a1d00fb847a8164b86b586c0c, type: 2}
 --- !u!222 &222889081707627074
 CanvasRenderer:
   m_ObjectHideFlags: 1

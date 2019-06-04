@@ -15,6 +15,8 @@ public class MeublePreview : MonoBehaviour {
     private bool holding;
     private Camera cam;
 
+    public GameObject testPrefab;
+
     private void Start()
     {
         cam = GameObject.FindObjectOfType<Camera>();
@@ -26,10 +28,25 @@ public class MeublePreview : MonoBehaviour {
         this.meubleContainer = meubleContainer;
         this.meublePrefab = meublePrefab;
         GameObject preview = Instantiate(meublePrefab, transform);
+
         Collider coll = preview.GetComponent<Collider>();
+
+        float ratio = 1 / (Mathf.Max(coll.bounds.size.x, coll.bounds.size.y));
+        preview.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f) * ratio;
+
+        preview.transform.localPosition = Vector3.zero - transform.forward;
         Vector3 offsetFromCenter = preview.transform.position - coll.bounds.center;
-        preview.transform.localPosition = -transform.forward + offsetFromCenter;
-        preview.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+//        Debug.DrawLine(Vector3.zero, coll.bounds.center, Color.red, 1000.0f);
+//        Debug.DrawLine(Vector3.zero, preview.transform.position, Color.green, 1000.0f);
+//        Debug.Log("---");
+//        Debug.Log(meublePrefab.name);
+//        Debug.Log(preview.transform.position.x);
+//        Debug.Log(coll.bounds.center.x);
+//        Debug.Log(offsetFromCenter.x);
+//        Debug.Log("---");
+//        Instantiate(testPrefab, preview.transform.TransformPoint(offsetFromCenter), Quaternion.identity);
+        preview.transform.position += offsetFromCenter;
+
     }
 
     public void OnDown()
@@ -59,10 +76,7 @@ public class MeublePreview : MonoBehaviour {
         Collider coll = meubleInstantiated.GetComponent<Collider>();
         Vector3 offsetFromCenter = meubleInstantiated.transform.position - coll.bounds.center;
 
-        objectInstantiated.transform.localPosition += offsetFromCenter;
-        HandDraggable hd = objectInstantiated.GetComponent<HandDraggable>();
-        hd.HostTransform = objectInstantiated.transform;
-        hd.OnInputDown(eventData);
+        objectInstantiated.transform.position += offsetFromCenter;
     }
 
     public void OnUp()

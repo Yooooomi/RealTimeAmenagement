@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ControllerPointerStabilizer: {fileID: 114345042324023316}
-  Cursor: {fileID: 0}
+  Cursor: {fileID: 114000013851064060, guid: b2db04283121ca74495c2ee000fb4243, type: 2}
   searchForCursorIfUnset: 1
   autoselectBestAvailable: 0
   linePointerPrefab: {fileID: 1071219928950220, guid: 7dd8661d4bacf2546a0237daef280291,
